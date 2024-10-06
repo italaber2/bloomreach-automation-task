@@ -1,0 +1,24 @@
+{
+  "name": "arkadium-automation-task",
+  "description": "",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/italaber2/arkadium-automation-task.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "cypress": "^13.15.0",
+    "typescript": "^5.6.2"
+  },
+  "bugs": {
+    "url": "https://github.com/italaber2/arkadium-automation-task/issues"
+  },
+  "homepage": "https://github.com/italaber2/arkadium-automation-task#readme"
+}
