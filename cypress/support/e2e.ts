@@ -1,20 +1,17 @@
-// ***********************************************************
-// This example support/e2e.ts is processed and
-// loaded automatically before your test files.
-//
-// This is a great place to put global configuration and
-// behavior that modifies Cypress.
-//
-// You can change the location of this file or turn off
-// automatically serving support files with the
-// 'supportFile' configuration option.
-//
-// You can read more here:
-// https://on.cypress.io/configuration
-// ***********************************************************
+import "cypress-plugin-steps";
+import "./commands";
 
-// Import commands.js using ES2015 syntax:
-import './commands'
+Cypress.on("uncaught:exception", (err, runnable) => {
+  // Ignore errors that originate from application scripts
+  if (
+    err.message.includes("Script error.") ||
+    err.message.includes("cross origin script") ||
+    err.message.includes("window.__tcfapi is not a function")
+  ) {
+    // returning false here prevents Cypress from failing the test
+    return false;
+  }
 
-// Alternatively you can use CommonJS syntax:
-// require('./commands')
+  // allow Cypress to fail the test for other uncaught exceptions
+  return true;
+});
