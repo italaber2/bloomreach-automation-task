@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "cy:open": "cypress open",
-    "cy:run": "cypress run --browser chrome --spec 'cypress/tests/*'"
+    "cy:run": "cypress run",
+    "generate-report": "npx mochawesome-merge './cypress/reports/html/.jsons/*.json' | npx mochawesome-report-generator -o './cypress/reports/html/mochawesome.html'",
+    "test": "npm run cy:run && npm run generate-report"
   },
   "repository": {
     "type": "git",
@@ -13,11 +15,14 @@
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {},
   "devDependencies": {
+    "@types/node": "^22.7.5",
     "cypress": "^13.15.0",
-    "typescript": "^5.6.2",
-    "cypress-plugin-steps": "^1.1.1"
+    "cypress-mochawesome-reporter": "^3.8.2",
+    "cypress-plugin-steps": "^1.1.1",
+    "mochawesome-merge": "^4.3.0",
+    "mochawesome-report-generator": "^6.2.0",
+    "typescript": "^5.6.2"
   },
   "bugs": {
     "url": "https://github.com/italaber2/arkadium-automation-task/issues"
