@@ -20,7 +20,7 @@ describe("Validate games lists", () => {
   });
 
   it("Validate best games list", () => {
-    cy.step("Navigate to worst games and verify list of worst games");
+    cy.step("Navigate to best games and verify list of best games");
     const bestGames = games.best;
     cy.get('[data-testid="Best"]').click();
     bestGames.forEach((bestGames) => {
