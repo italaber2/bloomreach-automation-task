@@ -1,5 +1,5 @@
 {
-  "games": [
+  "best": [
     "Who Wants to Be a Millionaire?",
     "Arkadium's Bubble Shooter",
     "Family Feud",
@@ -23,5 +23,20 @@
     "Free Online Daily Crossword Puzzle",
     "Crystal Collapse Odyssey",
     "Crystal Collapse Summer Nights"
+  ],
+  "seasonal": [
+    "Who Wants to Be a Millionaire?",
+    "Arkadium's Bubble Shooter",
+    "Journey Match 3D",
+    "Spider Solitaire Game",
+    "Categories",
+    "Outspell Spelling Game",
+    "Trizzle Halloween",
+    "Monster Mahjongg Dimensions",
+    "Game Day Block Champ",
+    "Hurdle",
+    "Free Online Blackjack",
+    "Free Online Mahjong: Age of Alchemy",
+    "Mahjongg Dark Dimensions"
   ]
 }
