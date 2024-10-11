@@ -1,12 +1,18 @@
+import { HomePage } from "../pages/homePage";
+import { ShopPage } from "../pages/shopPage";
+
 interface GemPrice {
   quantity: string;
   price: string;
 }
 
 describe("Validate gem prices", () => {
+  const homePage = new HomePage();
+  const shopPage = new ShopPage();
+
   before(() => {
     cy.step("Visit homepage and check for consent dialogue");
-    cy.visit("https://www.arkadium.com/");
+    homePage.visitHomePage();
     cy.checkConsentDialogue();
   });
 
@@ -19,24 +25,13 @@ describe("Validate gem prices", () => {
         Cypress.env("ARKADIUM_USERNAME") as string,
         Cypress.env("ARKADIUM_PASSWORD") as string
       );
-      cy.get('[data-testid="avatars-list-item"]', { timeout: 10000 }).should(
-        "be.visible"
-      );
+      homePage.verifyAvatar();
 
       cy.step("Navigate to the shop");
-      cy.get('[data-element-description="nav-shop-button"]').click();
+      homePage.navigateToShop();
 
       cy.step("Validate the number of gems and price");
-      cy.get(".GemCard-value-r3z3PlZF").should("have.length", gemPrices.length);
-      gemPrices.forEach((gemPrice, index) => {
-        cy.get(".GemCard-value-r3z3PlZF")
-          .eq(index)
-          .should("have.text", gemPrice.quantity);
-
-        cy.get(".GemCard-button-yJ__zryn")
-          .eq(index)
-          .should("have.text", gemPrice.price);
-      });
+      shopPage.validateGemPrices(gemPrices);
     });
   });
 });

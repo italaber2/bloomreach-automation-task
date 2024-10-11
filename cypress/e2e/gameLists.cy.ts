@@ -1,9 +1,12 @@
+import { HomePage } from "../pages/homePage";
+
 interface gameLists {
   best: string[];
   seasonal: string[];
 }
 
 describe("Validate games lists", () => {
+  const homePage = new HomePage();
   let games: gameLists;
 
   before(() => {
@@ -14,8 +17,7 @@ describe("Validate games lists", () => {
 
   beforeEach(() => {
     cy.step("Visit homepage and check for consent dialogue");
-    cy.visit("");
-    cy.url().should("eq", "https://www.arkadium.com/");
+    homePage.visitHomePage();
     cy.checkConsentDialogue();
   });
 
@@ -23,7 +25,7 @@ describe("Validate games lists", () => {
     const bestGames = games.best;
 
     cy.step("Navigate to best games");
-    cy.get('[data-testid="Best"]').click();
+    homePage.navigateToBestGames();
 
     cy.step("Verify best games");
     cy.verifyListOfGames(bestGames);
@@ -33,7 +35,7 @@ describe("Validate games lists", () => {
     const seasonalGames = games.seasonal;
 
     cy.step("Navigate to seasonal games");
-    cy.get('[data-testid="Seasonal Games"]').click();
+    homePage.navigateToSeasonalGames();
 
     cy.step("Verify seasonal games");
     cy.verifyListOfGames(seasonalGames);
