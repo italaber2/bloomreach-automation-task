@@ -17,7 +17,9 @@ describe("Validate categories", () => {
         cy.get('[data-element-description="search-games"]')
           .clear()
           .type(category);
-        cy.contains(category).should("be.visible");
+        cy.get(".CategoryCard-categoryCardCaption-RBYCfGRI")
+          .contains(category)
+          .should("be.visible");
       });
     });
   });

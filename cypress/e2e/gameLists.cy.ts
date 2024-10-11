@@ -20,22 +20,22 @@ describe("Validate games lists", () => {
   });
 
   it("Validate best games list", () => {
-    cy.step("Navigate to best games and verify list of best games");
     const bestGames = games.best;
+
+    cy.step("Navigate to best games");
     cy.get('[data-testid="Best"]').click();
-    bestGames.forEach((bestGames) => {
-      cy.checkButtonsLayer();
-      cy.contains(bestGames).should("be.visible");
-    });
+
+    cy.step("Verify best games");
+    cy.verifyListOfGames(bestGames);
   });
 
   it("Validate seasonal games list", () => {
-    cy.step("Navigate to memory games and verify list of memory games");
     const seasonalGames = games.seasonal;
+
+    cy.step("Navigate to seasonal games");
     cy.get('[data-testid="Seasonal Games"]').click();
-    seasonalGames.forEach((seasonalGames) => {
-      cy.checkButtonsLayer();
-      cy.contains(seasonalGames).should("be.visible");
-    });
+
+    cy.step("Verify seasonal games");
+    cy.verifyListOfGames(seasonalGames);
   });
 });
