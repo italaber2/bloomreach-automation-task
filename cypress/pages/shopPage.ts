@@ -1,30 +1,21 @@
 export class ShopPage {
-  visitHomePage() {
-    cy.visit("https://www.arkadium.com/");
-    cy.url().should("eq", "https://www.arkadium.com/");
+  orderBy() {
+    return cy.get('[name="orderby"]');
   }
 
-  checkConsentDialogue() {
-    cy.checkConsentDialogue();
+  orderByLowestPrice() {
+    return cy.get('[name="orderby"]').select("price").wait(500);
   }
 
-  verifyAvatar() {
-    cy.get('[data-testid="avatars-list-item"]', { timeout: 10000 }).should(
-      "be.visible"
-    );
+  addProductToCartById(id: string) {
+    return cy.get(`[data-product_id='${id}']`);
   }
 
-  validateGemPrices(gemPrices: { quantity: string; price: string }[]) {
-    cy.get(".GemCard-value-r3z3PlZF").should("have.length", gemPrices.length);
+  viewBasketPageLink() {
+    return cy.get('a[title="View Basket"]');
+  }
 
-    gemPrices.forEach((gemPrice, index) => {
-      cy.get(".GemCard-value-r3z3PlZF")
-        .eq(index)
-        .should("have.text", gemPrice.quantity);
-
-      cy.get(".GemCard-button-yJ__zryn")
-        .eq(index)
-        .should("have.text", gemPrice.price);
-    });
+  viewBasketNavBar() {
+    return cy.get('[id="wpmenucartli"]');
   }
 }

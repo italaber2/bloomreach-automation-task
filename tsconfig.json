@@ -9,7 +9,7 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "types": ["node", "cypress-plugin-steps"],
-    "baseUrl": "https://www.arkadium.com",
+    "baseUrl": "https://practice.automationtesting.in/",
     "paths": {
       "@/*": ["src/*"]
     }

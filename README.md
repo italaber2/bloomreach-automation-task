@@ -1,4 +1,4 @@
-# arkadium-automation-task
+# bloomreach-automation-task
 
 ### Installation
 
@@ -10,18 +10,6 @@ npm install
 
 ### Usage
 
-Before running the tests, we need to create and configure the .env file.
-
-```
-touch .env
-```
-
-```
-cp example.env .env
-```
-
-The actual login credentials are those provided in the task description PDF. Copy the values into the .env file and then run the tests.
-
 The Cypress tests can be run either in headless mode:
 
 ```
@@ -32,4 +20,10 @@ or via the Cypress UI:
 
 ```
 npm run cy:open
+```
+
+To run the tests and open the generated test report, use the command:
+
+```
+npm run test
 ```
