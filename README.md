@@ -1,4 +1,4 @@
-# bloomreach-automation-task
+# Bloomreach Automation Task
 
 ### Installation
 
