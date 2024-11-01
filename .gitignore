@@ -2,3 +2,4 @@ node_modules/
 screenshots/
 reports/
 videos/
+.DS_Store
